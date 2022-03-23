@@ -44,10 +44,17 @@
 
 const $btn = $('button');
 const $input = $('input');
+const $aside = $('aside');
+const apiKey = "b7a0967e02a6f4443d97e920a7eee5f7";
+const $icon = $('.icon');
 
-$btn.on('click', () =>{
+$btn.on('click', (e) =>{
+    e.preventDefault();
     const searchCity = $input.val();
-$.ajax("https://api.openweathermap.org/data/2.5/weather?q=${searchcity}&appid=b7a0967e02a6f4443d97e920a7eee5f7").then(data => {
-    console.log(data);
+    $.ajax(`https://api.openweathermap.org/data/2.5/weather?q=${searchCity}&appid=${apiKey}`)
+    .then(data => {
+    const weatherIcon = `https://openweathermap.org/img/w/${data.weather[0].icon}.png`
+    $icon.attr('src', weatherIcon);
+    })
 })
-})
+

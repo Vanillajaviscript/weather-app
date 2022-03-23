@@ -12,17 +12,25 @@
       <script src="./js/main.js" defer></script>
 </head>
 <body>
-    <div class="container">
-        <div id="weatherdisplay">
-            
+    <section class="header">
+        <div class="container">
+            <img class="icon">
+            <p class="weather-description"></p>
+            <p class="weather-temp"></p>
+          <form>
+            Search
+            <input type="text" placeholder="City Search">
+            <button>SUBMIT</button>
+            <span></span>
+          </form>
         </div>
-        Search
-        <input type="text" placeholder="Find weather">
-        <button>Search Weather</button>
-    </div>
-    <aside class="display">
-
-    </aside>
+      </section>
+      <section class="ajax">
+        <div class="container">
+          <ul class="cities"></ul>
+        </div>
+      </section>
     
 </body>
 </html>
+
