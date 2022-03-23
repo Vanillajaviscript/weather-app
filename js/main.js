@@ -36,24 +36,15 @@ $btn.on('click', (e) =>{
 
         let weatherIcon = url + data.weather[0].icon + ".png"
             $weatherImg.attr('src', weatherIcon);
-
     // catch to alert user to non-city input      
-    }).catch((error) => {
-        if($input.val() !== searchCity) {
-            $msg.text("Please search for an actual city")
-        }else {
+    }).catch(() => {
+        if($input.val() === searchCity) {
             $input.val("")
+            $input.focus();
             $form[0].reset();
+    } else if($input.val() !== searchCity) {
+    $msg.text("Please search for an actual city, also I'm just going to stay here even if you search for a city now.")
         }
-
     })  
 })
-
-// $.ajax(`https://api.openweathermap.org/data/2.5/weather?lat=45.5152&lon=122.6784&appid=${apiKey}`)
-// .then(data => {
-//     let long = data.coord.lon;
-//     let lat = data.coord.lat;
-
-//     console.log(long, lat)
-// })
 
