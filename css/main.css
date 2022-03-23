@@ -1,17 +1,6 @@
-:root {
-    --bg_main: #2754ad7a;
-    --text_light: #fff;
-    --text_med: #53627c;
-    --text_dark: #1e2432;
-    --red: #3a82b9;
-    --darkred: #c3112d;
-  }
-   
   * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-weight: normal;
   }
 
   html {
@@ -22,8 +11,7 @@
     cursor: pointer;
   }
    
-  button,
-  input {
+  button, input {
     /* border: none; */
     background: rgba(128, 128, 128, 0.432);
     border-radius: 40px;
@@ -32,7 +20,7 @@
   }
 
   body {
-    background: linear-gradient(to left, rgba(1, 0, 0, 0), rgba(46, 37, 216, 0.253));
+    background: linear-gradient(to top, rgba(1, 0, 0, 0.236), rgba(13, 8, 94, 0.932));
     padding: 50px;
   }
   
