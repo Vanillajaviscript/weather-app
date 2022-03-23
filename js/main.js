@@ -10,7 +10,7 @@ const $msg = $('.message');
 const $form = $('.form');
 const $pTag = $('p');
 const $weatherFeels = $('.weather-feels')
-const url = "https://openweathermap.org/img/w/";
+const imageUrl = "https://openweathermap.org/img/w/";
 
 $btn.on('click', (e) =>{
     e.preventDefault();
@@ -34,7 +34,7 @@ $btn.on('click', (e) =>{
                   feelsLike = "Feels like: " + Math.floor(data.main.feels_like) + " °C";
                   $weatherFeels.append(feelsLike)
 
-        let weatherIcon = url + data.weather[0].icon + ".png"
+        let weatherIcon = imageUrl + data.weather[0].icon + ".png"
             $weatherImg.attr('src', weatherIcon);
     // catch to alert user to non-city input      
     }).catch(() => {
