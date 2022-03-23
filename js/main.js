@@ -43,18 +43,34 @@
 // api key: b7a0967e02a6f4443d97e920a7eee5f7
 
 const $btn = $('button');
-const $input = $('input');
+const $input = $(':text');
 const $aside = $('aside');
 const apiKey = "b7a0967e02a6f4443d97e920a7eee5f7";
-const $icon = $('.icon');
+const $weatherImg = $('.icon');
+const $temp = $('.weather-temp');
+const $weatherType = $('.weather-description');
+const $weatherHumidity = $('.weather-humidity');
+// const $inputVal = $(':text');
+// const $placeHolder = $(':City Search');
 
 $btn.on('click', (e) =>{
     e.preventDefault();
     const searchCity = $input.val();
-    $.ajax(`https://api.openweathermap.org/data/2.5/weather?q=${searchCity}&appid=${apiKey}`)
+    $.ajax(`https://api.openweathermap.org/data/2.5/weather?q=${searchCity}&units=metric&appid=${apiKey}`)
     .then(data => {
-    const weatherIcon = `https://openweathermap.org/img/w/${data.weather[0].icon}.png`
-    $icon.attr('src', weatherIcon);
+        let humidity = data.main.humidity + "%";
+            $weatherHumidity.append(humidity);
+            // $weatherHumidity.text('Humidity')
+
+        let description = data.weather[0].description;
+            $weatherType.append(description)
+
+        let tempDisplay = Math.floor(data.main.temp + "degrees");
+            $temp.append(tempDisplay);
+
+        let weatherIcon = `https://openweathermap.org/img/w/${data.weather[0].icon}.png`
+            $weatherImg.attr('src', weatherIcon);
+            console.log(data)
     })
 })
 
