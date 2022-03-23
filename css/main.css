@@ -12,10 +12,8 @@
   }
    
   button, input {
-    /* border: none; */
     background: rgba(128, 128, 128, 0.432);
     border-radius: 40px;
-    /* outline: none; */
     color: white;
   }
 
@@ -51,7 +49,6 @@
   }
    
   .header form button:hover {
-    /* background: var(--darkred); */
     background: linear-gradient(to right, lightblue, rgb(108, 43, 43));
   }
 
