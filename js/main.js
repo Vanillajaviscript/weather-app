@@ -29,7 +29,8 @@ $btn.on('click', (e) =>{
         let tempDisplay = data.main.temp;
             tempDisplay = "Temperature: " + Math.floor(data.main.temp) + " °C";
             $temp.append(tempDisplay);
-           let feelsLike = data.main.feels_like;
+            
+        let feelsLike = data.main.feels_like;
                   feelsLike = "Feels like: " + Math.floor(data.main.feels_like) + " °C";
                   $weatherFeels.append(feelsLike)
 
