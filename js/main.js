@@ -21,7 +21,7 @@ $btn.on('click', (e) =>{
     $.ajax(`https://api.openweathermap.org/data/2.5/weather?q=${searchCity}&units=metric&appid=${apiKey}`)
     .then(data => {
         // variables to extract properties from API to display to HTML
-        let weatherIcon = imageUrl + data.weather[0].icon + ".png"
+        let weatherIcon = imageUrl + data.weather[0].icon + ".png";
             $weatherImg.attr('src', weatherIcon);
 
         let humidity = "Humidity: " + data.main.humidity + "%";
@@ -37,6 +37,7 @@ $btn.on('click', (e) =>{
         let feelsLike = data.main.feels_like;
                   feelsLike = "Feels like: " + Math.floor(data.main.feels_like) + " °C";
                   $weatherFeels.append(feelsLike);
+
     // catch to alert user to non-city input      
     }).catch(() => {
         if($input.val() !== searchCity) {
