@@ -14,12 +14,16 @@ const imageUrl = "https://openweathermap.org/img/w/";
 
 $btn.on('click', (e) =>{
     e.preventDefault();
+    $msg.text("");
     const searchCity = $input.val();
         $pTag.text("")
         $form[0].reset();
     $.ajax(`https://api.openweathermap.org/data/2.5/weather?q=${searchCity}&units=metric&appid=${apiKey}`)
     .then(data => {
         // variables to extract properties from API to display to HTML
+        let weatherIcon = imageUrl + data.weather[0].icon + ".png"
+            $weatherImg.attr('src', weatherIcon);
+
         let humidity = "Humidity: " + data.main.humidity + "%";
             $weatherHumidity.append(humidity);
 
@@ -32,19 +36,12 @@ $btn.on('click', (e) =>{
             
         let feelsLike = data.main.feels_like;
                   feelsLike = "Feels like: " + Math.floor(data.main.feels_like) + " °C";
-                  $weatherFeels.append(feelsLike)
-
-        let weatherIcon = imageUrl + data.weather[0].icon + ".png"
-            $weatherImg.attr('src', weatherIcon);
+                  $weatherFeels.append(feelsLike);
     // catch to alert user to non-city input      
     }).catch(() => {
-        if($input.val() === searchCity) {
-            $input.val("")
-            $input.focus();
-            $form[0].reset();
-    } else if($input.val() !== searchCity) {
-    $msg.text("Please search for an actual city, also I'm just going to stay here even if you search for a city now.")
-        }
+        if($input.val() !== searchCity) {
+            $msg.text("That city must be from a different API from a different planet")
+        } 
     })  
 })
 

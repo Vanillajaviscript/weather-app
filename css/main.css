@@ -76,7 +76,7 @@
   input {
     text-align: center;
     font-family:Arial, Helvetica, serif;
-    background:rgba(26, 143, 185, 0.137)
+    background: linear-gradient(to top, rgba(1, 0, 0, 0.236), rgba(7, 6, 11, 0.938));
   }
 
   footer {
